@@ -1,0 +1,342 @@
+$max_width: 480px;
+$max_height: 640px;
+$scroll_height: 768px;
+.container {
+  width: 100vw;
+  max-width: $max_width;
+  height: 100vh;
+  max-height: $max_height;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.informer {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: #34393c;
+  border: white 0.2rem solid;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  color: white;
+  font-style: oblique;
+
+  &::after {
+    content: "km";
+    display: block;
+    background: #0f1314;
+    border: white 0.2rem solid;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    font-size: 1.2rem;
+    z-index: -1;
+    right: -60px;
+    top: 25px;
+  }
+}
+
+.startgame {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 166px;
+  height: 46px;
+  line-height: 46px;
+  background-image: url(../images/startgame.png);
+}
+
+.restartgame {
+  background-image: url(../images/restart.png);
+  display: block;
+  background-size: 50px;
+  width: 50px;
+  height: 53px;
+  margin: auto;
+}
+
+.gameover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  opacity: 0.8;
+  background: black;
+
+  ul {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    width: 220px;
+    height: 200px;
+    line-height: 40px;
+    margin: auto;
+    text-align: center;
+  }
+
+  li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+
+    &.title {
+      font-size: 2rem;
+    }
+  }
+}
+
+/* road */
+.road {
+  width: 100vw;
+  height: $scroll_height;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  display: flex;
+  transform: translateZ(0);
+}
+
+.road-col {
+  margin: 0;
+  padding: 0;
+  height: $scroll_height;
+}
+
+.road-col-1,
+.road-col-5 {
+  width: 12.5vw;
+  max-width: $max_width / 8;
+  background-color: #e0d0ab;
+}
+
+.road-col-2,
+.road-col-4,
+.road-col-3 {
+  width: 25vw;
+  max-width: $max_width / 4;
+  background-color: #a7c9cb;
+}
+
+.road-block {
+  height: 128px;
+  max-width: 128px;
+  background-size: 128px 128px;
+}
+
+.road-block-road1 {
+  background: url(../images/road1.png) no-repeat left;
+}
+
+.road-block-road2 {
+  background: url(../images/road2.png) no-repeat center;
+}
+
+.road-block-road3 {
+  background: url(../images/road3.png) no-repeat right;
+}
+
+.road-block-tree1 {
+  background: url(../images/tree1.png) no-repeat bottom;
+  background-size: 35px;
+}
+
+.road-block-tree2 {
+  background: url(../images/tree1.png) no-repeat top;
+  background-size: 35px;
+}
+
+.road-block-tent {
+  background: url(../images/tent.png) no-repeat center;
+  background-size: 35px;
+}
+
+.road-col-3 {
+  background: url(../images/arrow.png) repeat-y center;
+  background-size: 20px;
+  background-color: #a7c9cb;
+}
+
+/* hero */
+.hero {
+  background: url(../images/player.png) no-repeat center center;
+  background-size:100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+  width: 45px;
+  height: 45px;
+  padding-bottom: 15px;
+
+  &.right {
+    left: 316px;
+  }
+
+  &.left {
+    left: 124px;
+  }
+
+  @media (max-width: $max_width) {
+    &.right {
+      left: calc(70vw - 20px);
+    }
+    &.left {
+      left: calc(30vw - 20px);
+    }
+  }
+
+  .life {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 13px;
+    margin-left: 5px;
+    overflow: hidden;
+    background: url(../images/life.png) repeat-x;
+    background-size: auto 13px;
+
+    &.life1 {
+      width: 13px;
+    }
+
+    &.life2 {
+      width: 26px;
+    }
+
+    &.life3 {
+      width: 39px;
+    }
+  }
+}
+
+.warning {
+  background: url("../images/warning.png") no-repeat;
+  position: absolute;
+  border-radius: 10px;
+  background-size: 100%;
+  margin-top: 50px;
+  width: 200px;
+  height: 100px;
+}
+
+/* traffic light */
+.trafficlight {
+  width: 36vw;
+  max-width: $max_width / 100 * 36;
+  height: 60px;
+  position: absolute;
+  z-index: 20;
+  transform: translateY(-60px) translateZ(0);
+  // top: -60px;
+  left: 60px;
+
+  &.red {
+    background: url("../images/trafficlightred.png") no-repeat;
+    background-size: $max_width / 100 * 36;
+  }
+
+  &.green {
+    background: url("../images/trafficlightgreen.png") no-repeat;
+    background-size: $max_width / 100 * 36;
+  }
+
+  &.yellow {
+    background: url("../images/trafficlightyellow.png") no-repeat;
+    background-size: $max_width / 100 * 36;
+  }
+
+  @media (max-width: $max_width) {
+    left: 12.5vw;
+    width: 36vw;
+    &.red,
+    &.green,
+    &.yellow {
+      background-size: 36vw;
+    }
+  }
+}
+
+/* participant */
+.car {
+  background-image: url(../images/car1.png);
+  transform: rotate(180deg);
+  width: 40px;
+  height: 75px;
+  position: absolute;
+  z-index: 10;
+  // top: -75px;
+  transform: translateY(-75px);
+
+  &.right {
+    left: 316px;
+  }
+
+  &.left {
+    left: 124px;
+  }
+
+  &.car1 {
+    background-image: url(../images/car1.png);
+  }
+  &.car2 {
+    background-image: url(../images/car2.png);
+  }
+  &.car3 {
+    background-image: url(../images/car3.png);
+  }
+  &.car4 {
+    background-image: url(../images/car4.png);
+  }
+  &.car5 {
+    background-image: url(../images/car5.png);
+  }
+
+
+  @media (max-width: $max_width) {
+    &.right {
+      left: calc(70vw - 20px);
+    }
+    &.left {
+      left: calc(30vw - 20px);
+    }
+  }
+}
+
+// twinkling
+@keyframes twinkling {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.twinkling {
+  animation: twinkling 0.2s infinite ease-in-out;
+}
+
+.hidden {
+  visibility: hidden;
+}
