@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Road from "./components/Road";
 import Participants from "./components/Participants";
 import TrafficLight from "./components/TrafficLight";
+import Sound from "./components/Sound";
 import {
     MAX_LIFE_NUMBER,
     HIT_INTERVAL,
@@ -168,6 +169,7 @@ export default class App extends React.Component {
                         </div>
                     )}
                 </div>
+                <Sound></Sound>
             </div>
         );
     }
